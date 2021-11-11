@@ -1,11 +1,17 @@
 import React from 'react'
 
-export default function Container({ children, type }) {
-    const getClasses = () => {
-        if (type === 'naked') {
-            return ''
-        }
-        return 'border border-gray-200 px-3 py-2 ro'
+export default function Container({ children, type, title = '', description = '' }) {
+  const getClasses = () => {
+    if (type === 'naked') {
+      return ''
     }
-    return <div className={`bg-white rounded-lg ${getClasses()}`}>{children}</div>
+    return 'border border-gray-200 p-4 ro'
+  }
+  return (
+    <div className={`bg-white rounded-lg w-full pt ${getClasses()}`}>
+      <p className="text-3xl">{title}</p>
+      <p>{description}</p>
+      <div className="mt-4">{children}</div>
+    </div>
+  )
 }

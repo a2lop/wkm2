@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
-        "baseUrl": "./app",
+        "jsx": "preserve",
+        "baseUrl": ".",
         "paths": {
-            "@components": ["./components"]
-            // "@/lib/*": ["app/lib/*"],
-            // "@/content/*": ["app/content/*"],
-            // "@/config/*": ["config/*"]
+            // "@/*": ["*"],
+            "@components": ["app/components"],
+            "@content": ["app/content"],
+            "@utils": ["app/utils"],
+            "@config": ["app/config"]
         }
     },
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", ".next"]
 }

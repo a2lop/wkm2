@@ -3,9 +3,9 @@ import React from 'react'
 export default function Button({ type, onClick, text, className, id = '', isLoading, children }) {
     const getClasses = () => {
         if (type === 'secondary') {
-            return 'border-2 border-whatkom px-8 py-1 bg-white rounded-lg text-whatkom font-bold'
+            return 'border-2 border-venderelo px-8 py-1 bg-white rounded-lg text-venderelo font-bold'
         }
-        return 'bg-whatkom text-white rounded-lg border-none px-8 py-1 '
+        return 'bg-venderelo text-white rounded-lg border-none px-8 py-1 '
     }
 
     return (

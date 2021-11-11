@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react'
 import Modal from 'react-modal'
 import { useForm } from 'react-hook-form'
-import Input from '../../common/Input'
-import ModalSection from '../ModalSection'
-import TextArea from '../../common/TextArea'
-import Button from '../../common/Button'
-import ModalHeader from '../ModalHeader'
-import ImagePicker from '../../common/ImagePicker'
-import fire from '../../../../config/firebase'
-import { InputRof } from '@components'
+import fire from '@/config/firebase'
+import { Button, ImagePicker, InputRof, TextArea, ModalHeader, ModalSection } from '@/components/index'
 
 export default function ModalAddCategory({ isOpen, closeModal }) {
     const { register, handleSubmit, watch, errors, getValues } = useForm()

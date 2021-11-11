@@ -1,62 +1,62 @@
 import React, { useEffect, useState } from 'react'
-import Modal from 'react-modal'
-import { useForm } from 'react-hook-form'
-import Input from '../../common/Input'
-import ModalSection from '../ModalSection'
-import TextArea from '../../common/TextArea'
-import Button from '../../common/Button'
-import ModalHeader from '../ModalHeader'
-import ImagePicker from '../../common/ImagePicker'
-import fire from '../../../../config/firebase'
+// import Modal from 'react-modal'
+// import { useForm } from 'react-hook-form'
+// import Input from '../../common/Input'
+// import ModalSection from '../ModalSection'
+// import TextArea from '../../common/TextArea'
+// import Button from '../../common/Button'
+// import ModalHeader from '../ModalHeader'
+// import ImagePicker from '../../common/ImagePicker'
+// import fire from '../../../../config/firebase'
 
 export default function ModalEditStore({ isOpen, closeModal, user }) {
-    const { register, handleSubmit, watch, errors, getValues, setValue } = useForm()
-    const [isOpened, setIsOpened] = useState(true)
+    // const { register, handleSubmit, watch, errors, getValues, setValue } = useForm()
+    // const [isOpened, setIsOpened] = useState(true)
 
-    const name = watch('name')
-    const city = watch('city')
-    const phone = watch('phone')
-    const email = watch('email')
-    const description = watch('description')
-    const facebook = watch('facebook')
-    const instagram = watch('instagram')
-    const keywords = watch('keywords')
+    // const name = watch('name')
+    // const city = watch('city')
+    // const phone = watch('phone')
+    // const email = watch('email')
+    // const description = watch('description')
+    // const facebook = watch('facebook')
+    // const instagram = watch('instagram')
+    // const keywords = watch('keywords')
 
-    useEffect(() => {
-        console.log('user', user)
-        if (user) {
-            setValue('name', user.name)
-        }
-    }, [user])
+    // useEffect(() => {
+    //     console.log('user', user)
+    //     if (user) {
+    //         setValue('name', user.name)
+    //     }
+    // }, [user])
 
-    useEffect(() => {
-        console.log('==errors', errors)
-    }, [errors])
+    // useEffect(() => {
+    //     console.log('==errors', errors)
+    // }, [errors])
 
-    useEffect(() => {
-        console.log('==getValues', getValues())
-    }, [getValues()])
+    // useEffect(() => {
+    //     console.log('==getValues', getValues())
+    // }, [getValues()])
 
-    const onSubmit = () => {
-        const values = getValues()
+    // const onSubmit = () => {
+    //     const values = getValues()
 
-        delete values.storeImage
+    //     delete values.storeImage
 
-        console.log('===user', user)
+    //     console.log('===user', user)
 
-        fire.firestore()
-            .collection('users')
-            .doc(user.uid)
-            .update(values)
-            .then()
-            .catch(err => {
-                console.log('===ERROR', err)
-            })
-    }
+    //     fire.firestore()
+    //         .collection('users')
+    //         .doc(user.uid)
+    //         .update(values)
+    //         .then()
+    //         .catch(err => {
+    //             console.log('===ERROR', err)
+    //         })
+    // }
 
     return (
         <div>
-            <Modal
+            {/* <Modal
                 isOpen={isOpened}
                 onRequestClose={() => {
                     setIsOpened(false)
@@ -159,7 +159,7 @@ export default function ModalEditStore({ isOpen, closeModal, user }) {
                         <Button text="Guardar" isSubmit={true} />
                     </div>
                 </form>
-            </Modal>
+            </Modal> */}
         </div>
     )
 }

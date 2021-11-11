@@ -26,5 +26,8 @@
         "react-modal": "^3.12.1",
         "react-tooltip": "^4.2.13",
         "tailwindcss": "^2.0.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.6"
     }
 }

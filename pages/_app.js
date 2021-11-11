@@ -1,6 +1,6 @@
 import 'tailwindcss/tailwind.css'
 import Layout from '../app/components/layout/Layout'
-import { AuthProvider } from '../lib/auth'
+import { AuthProvider } from '@utils'
 
 function MyApp({ Component, pageProps }) {
     return (

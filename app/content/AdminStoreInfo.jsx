@@ -26,7 +26,7 @@ export default function AdminStoreInfo({ user }) {
                                     <Subtitle text={user.address} />
                                 </div>
                                 <div className="ml-2">
-                                    <div className="text-whatkom flex">
+                                    <div className="text-venderelo flex">
                                         <ButtonIcon
                                             icon="faPencilAlt"
                                             size="2x"
@@ -47,13 +47,13 @@ export default function AdminStoreInfo({ user }) {
                             </div>
 
                             <DefaultText>{user.description}</DefaultText>
-                            <LinkWithIcon icon="faEnvelope" link="mailto:whatkom@abc.com">
+                            <LinkWithIcon icon="faEnvelope" link="mailto:venderelo@abc.com">
                                 {user.email}
                             </LinkWithIcon>
-                            <LinkWithIcon icon="faFacebook" link="https://www.facebook.com/whatkom123">
+                            <LinkWithIcon icon="faFacebook" link="https://www.facebook.com/venderelo">
                                 {user.facebook}
                             </LinkWithIcon>
-                            <LinkWithIcon icon="faInstagram" link="https://www.instagram.com/whatkom/">
+                            <LinkWithIcon icon="faInstagram" link="https://www.instagram.com/venderelo/">
                                 {user.instagram}
                             </LinkWithIcon>
                         </div>
