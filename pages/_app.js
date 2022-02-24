@@ -1,12 +1,13 @@
-import "tailwindcss/tailwind.css";
-import Layout from "../app/components/layout/Layout";
+import React from "react";
+import Header from "../components/Header/Header";
+import "../styles/global.css";
 
-function MyApp({ Component, pageProps }) {
+// This default export is required in a new `pages/_app.js` file.
+export default function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
+    <>
+      <Header />
       <Component {...pageProps} />
-    </Layout>
+    </>
   );
 }
-
-export default MyApp;

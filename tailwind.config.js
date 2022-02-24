@@ -1,18 +1,14 @@
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
-      screens: {
-        xs: { max: "639px" },
-      },
       colors: {
-        whatkom: "#66bc46",
-      },
+        whatkom: '#66bc46'
+      }
     },
   },
-  variants: {
-    extend: {},
-  },
   plugins: [],
-};
+}
