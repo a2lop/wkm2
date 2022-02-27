@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from "react";
 
 import LabeledInput from "components/LabeledInput/LabeledInput";
-import SidebarOption from "components/SidebarOption/SidebarOption";
 import LabeledValue from "components/LabeledValue/LabeledValue";
-import Icon from "components/Icon/Icon";
+import Button from "components/Button/Button";
+import { useAppContext } from "context/state";
 
-const PersonalForm = ({ selectedOption = "categories", setSelectedOption }) => {
-  const [isEditing, setIsEditing] = useState(true);
-  const [name, setName] = useState("Mi tienda");
+const AdminPersonalForm = ({
+  selectedOption = "categories",
+  setSelectedOption,
+}) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [name, setName] = useState();
   const [address, setAddress] = useState("Mi tienda");
+
+  const { user } = useAppContext();
+
+  useEffect(() => {
+    if (user) {
+      setName(user.storeName);
+    }
+  }, [user]);
+
   return (
     <div className="">
       Información personal
-      <Icon name="coffee"/>
+      <Button
+        label={"Editar"}
+        onClick={() => {
+          setIsEditing(!isEditing);
+        }}
+      />
       {isEditing ? (
         <>
           <LabeledInput
@@ -36,4 +53,4 @@ const PersonalForm = ({ selectedOption = "categories", setSelectedOption }) => {
   );
 };
 
-export default PersonalForm;
+export default AdminPersonalForm;

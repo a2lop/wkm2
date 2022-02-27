@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 
 import { onSnapshot, collection, orderBy, query, where } from "firebase/firestore";
-import { db } from '../firebase/clientApp';
+import { db } from '../firebaseUtils/clientApp';
 
 const Store = () => {
 
