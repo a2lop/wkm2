@@ -10,10 +10,10 @@ const LabeledInput = ({ value, setValue = () => {}, label, placeholder }) => {
     setValue(event.target.value);
   };
   return (
-    <div className="mb-4 px-2">
+    <div className="mb-4 px-2 flex-1">
       {label && <Label label={label} />}
       <input
-        className="border-2 border-gray-200 bg-gray-200 px-2 h-12"
+        className="border-2 border-gray-200 bg-gray-200 px-2 h-12 w-full"
         value={value}
         onChange={handleOnChange}
         placeholder={placeholder}

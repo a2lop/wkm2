@@ -10,7 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "firebaseUtils/clientApp";
 
 const Admin = () => {
-  const [selectedTab, setSelectedTab] = useState("personal");
+  const [selectedTab, setSelectedTab] = useState("categories");
   const [categories, setCategories] = useState([
     { id: "1", name: "Bebidas", products: "12" },
     { id: "2", name: "Frutas", products: "22" },
@@ -20,7 +20,6 @@ const Admin = () => {
   const { user, setUser } = useAppContext();
 
   useEffect(() => {
-    console.log("===", user);
     if (!user) {
       loadUser();
     }
@@ -52,7 +51,7 @@ const Admin = () => {
         selectedOption={selectedTab}
         setSelectedOption={setSelectedTab}
       />
-      {getShowedTab()}
+      <div className="flex-1">{getShowedTab()}</div>
     </div>
   );
 };

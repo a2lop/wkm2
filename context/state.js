@@ -4,6 +4,7 @@ const AppContext = createContext();
 
 export function AppWrapper({ children }) {
   const [user, setUser] = useState();
+  const [categories, setCategories] = useState([]);
 
   //   let sharedState = {
   //     user: {
@@ -18,7 +19,7 @@ export function AppWrapper({ children }) {
   //   };
 
   return (
-    <AppContext.Provider value={{ user, setUser }}>
+    <AppContext.Provider value={{ categories, setCategories, user, setUser }}>
       {children}
     </AppContext.Provider>
   );

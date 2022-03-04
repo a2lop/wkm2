@@ -4,10 +4,10 @@ import Label from "components/Label/Label";
 
 const LabeledValue = ({ value, label }) => {
   return (
-    <div className="mb-4 px-2">
+    <div className="mb-4 px-2 flex-1">
       {label && <Label label={label} />}
-      <div className="border-2 border-gray-100 bg-gray-100 px-2 h-12 content-center py-2">
-        <p>{value}</p>
+      <div className=" px-2 h-12 content-center py-2">
+        <p className="">{value}</p>
       </div>
     </div>
   );

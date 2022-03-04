@@ -11,11 +11,11 @@ const TableRow = ({ row, actions = [] }) => {
             </p>
           );
         }
-        return <></>;
+        return null;
       })}
       {actions.length > 0 && (
         <>
-          {actions.map((action) => (
+          {actions.map((action, index) => (
             <Button
               type="naked"
               key={action.icon}

@@ -3,10 +3,15 @@ import PropTypes from "prop-types";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Icon = ({ name = "angry", size = "1x", color }) => {
+const Icon = ({ name = "angry", size = "1x", color, spin }) => {
   return (
     <>
-      <FontAwesomeIcon icon={["fas", name]} size={size} color={color} />
+      <FontAwesomeIcon
+        spin={spin}
+        icon={["fas", name]}
+        size={size}
+        color={color}
+      />
     </>
   );
 };
