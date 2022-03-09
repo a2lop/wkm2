@@ -6,18 +6,6 @@ export function AppWrapper({ children }) {
   const [user, setUser] = useState();
   const [categories, setCategories] = useState([]);
 
-  //   let sharedState = {
-  //     user: {
-  //       name: "andres",
-  //     },
-  //   };
-
-  //   const setUser = (user) => {
-  //     console.log("user", user);
-  //     sharedState = { ...sharedState user };
-
-  //   };
-
   return (
     <AppContext.Provider value={{ categories, setCategories, user, setUser }}>
       {children}

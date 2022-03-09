@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, LabeledInput, Modal, Table } from "components";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { Container, LabeledInput, Loading, Modal, Table } from "components";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "firebaseUtils/clientApp";
 
 import { useAppContext } from "context/state";
 
 const AdminCategoriesForm = ({}) => {
+  const [newCategoryName, setNewCategoryName] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [isAddingCategory, setIsAddingCategory] = useState(false);
 
@@ -28,7 +30,6 @@ const AdminCategoriesForm = ({}) => {
     const categoriesResult = await getDocs(docRef);
     const fetchedCategories = [];
     categoriesResult.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
       const data = doc.data();
       fetchedCategories.push({
         id: doc.id,
@@ -36,9 +37,9 @@ const AdminCategoriesForm = ({}) => {
         products: data.products,
       });
     });
-    console.log(fetchedCategories);
 
     setCategories(fetchedCategories);
+    setIsLoading(false);
   };
 
   const tableHeaders = ["Nombre", "Productos"];
@@ -60,12 +61,28 @@ const AdminCategoriesForm = ({}) => {
     setShowModal(true);
   };
 
-  const addCategory = () => {
+  const addCategory = async () => {
     setIsAddingCategory(true);
     setTimeout(() => {
       setIsAddingCategory(false);
       setShowModal(false);
     }, 3000);
+
+    const storeRef = doc(
+      db,
+      "stores",
+      "33mia5Ex0noh0ZtiDVej",
+      "categories",
+      newCategoryName
+    );
+
+    const response = await setDoc(storeRef, {
+      name: newCategoryName,
+      products: 0,
+    });
+    setIsAddingCategory(false);
+    setShowModal(false);
+    loadCategories();
   };
 
   return (
@@ -75,7 +92,11 @@ const AdminCategoriesForm = ({}) => {
         buttonRightLabel="Nueva"
         onClickButtonRight={openAddCategory}
       >
-        <Table headers={tableHeaders} data={categories} actions={actions} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <Table headers={tableHeaders} data={categories} actions={actions} />
+        )}
       </Container>
 
       <Modal
@@ -88,7 +109,11 @@ const AdminCategoriesForm = ({}) => {
         onSubmit={addCategory}
         isLoading={isAddingCategory}
       >
-        <LabeledInput label="Nombre de categoría" />
+        <LabeledInput
+          label="Nombre de categoría"
+          value={newCategoryName}
+          setValue={setNewCategoryName}
+        />
       </Modal>
     </>
   );

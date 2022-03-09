@@ -8,9 +8,10 @@ import AdminCategoriesForm from "components/admin/AdminCategoriesForm";
 import { useAppContext } from "context/state";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "firebaseUtils/clientApp";
+import AdminFormProducts from "components/admin/AdminFormProducts";
 
 const Admin = () => {
-  const [selectedTab, setSelectedTab] = useState("categories");
+  const [selectedTab, setSelectedTab] = useState("products");
   const [categories, setCategories] = useState([
     { id: "1", name: "Bebidas", products: "12" },
     { id: "2", name: "Frutas", products: "22" },
@@ -41,8 +42,9 @@ const Admin = () => {
     if (selectedTab === "personal") {
       return <AdminPersonalForm />;
     } else if (selectedTab === "categories") {
-      return <AdminCategoriesForm categories={categories} />;
+      return <AdminCategoriesForm />;
     }
+    return <AdminFormProducts />;
   };
 
   return (
